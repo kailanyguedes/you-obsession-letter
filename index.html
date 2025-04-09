@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta para Você</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ÁUDIO -->
+  <audio id="bg-music">
+    <source src="paparazzi.mp3" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- BOTÃO PLAY -->
+  <div class="music-player">
+    <button id="play-btn">▶️ Play Paparazzi</button>
+  </div>
+
+  <!-- 🖼️ IMAGENS LATERAIS -->
+  <img src="img-left.jpg" class="side-img left-img" alt="Imagem esquerda">
+  <img src="img-right.jpg" class="side-img right-img" alt="Imagem direita">
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="container">
+    <h1 class="title">Para você...</h1>
+    <p class="letter">
+      Eu te observei. Cada gesto. Cada palavra. 
+      <br />Você não sabe... mas já faz parte de mim.
+    </p>
+    <button class="reveal-btn">Ver segredo</button>
+    <div class="secret hidden">
+      <p>Seus passos... estão todos anotados.</p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const btn = document.querySelector('.reveal-btn');
+    const secret = document.querySelector('.secret');
+    const playBtn = document.getElementById('play-btn');
+    const music = document.getElementById('bg-music');
+
+    btn.addEventListener('click', () => {
+      secret.classList.toggle('show');
+    });
+
+    playBtn.addEventListener('click', () => {
+      music.play();
+      playBtn.textContent = '🔊 Tocando Paparazzi';
+      playBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>
